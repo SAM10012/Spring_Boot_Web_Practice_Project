@@ -46,3 +46,26 @@ com.pauls.SpringWebPractice
   "price": 45000
 }
 
+## How to Run
+
+1. Clone the repository:  
+   `git clone https://github.com/your-username/spring-product-crud.git`
+
+2. Open the project in IntelliJ IDEA or VS Code.
+
+3. Run `SpringWebPracticeApplication.java`.
+
+4. Test the endpoints using Postman or any API testing tool.
+
+## Future Enhancements
+
+1. Integrate with a real database (e.g., MySQL)
+
+2. Add validation and exception handling
+
+3. Implement Swagger documentation
+
+---
+
+**Author**: Samadrita Paul  
+**License**: MIT
