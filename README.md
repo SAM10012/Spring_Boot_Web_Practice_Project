@@ -52,21 +52,24 @@ Password: (leave blank)
 7. Open src/main/resources/static/index.html in your browser
 or visit http://localhost:8080/index.html directly
 
-API Endpoints
-Method	Endpoint	Description
-GET	/products	Get all products
-GET	/products/{prodID}	Get product by ID
-POST	/products	Add a new product
-PUT	/products	Update existing product
-DELETE	/products/{prodID}	Delete product by Id
+## API Endpoints
+
+| Method | Endpoint             | Description                 |
+|--------|----------------------|-----------------------------|
+| GET    | /products            | Get all products            |
+| GET    | /products/{prodID}   | Get product by ID           |
+| POST   | /products            | Add a new product           |
+| PUT    | /products            | Update existing product     |
+| DELETE | /products/{prodID}   | Delete product by ID        |
+
 
 
 Sample JSON for POST/PUT
 
 {
-  "prodId": 103,
-  "prodName": "Samsung TV",
-  "price": 45000
+  "prodId": 101,
+  "prodName": "IPhone 15",
+  "price": 80000
 }
 
 Notes
