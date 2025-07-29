@@ -27,41 +27,18 @@ This is a simple full-stack Product CRUD application using **Spring Boot**, **H2
 
 ---
 
-## Project Structure
-
-src
-├── main
-│ ├── java
-│ │ └── com.pauls.SpringWebPractice
-│ │ ├── controller
-│ │ │ └── ProductController.java
-│ │ ├── model
-│ │ │ └── Product.java
-│ │ ├── repository
-│ │ │ └── ProductRepo.java
-│ │ ├── service
-│ │ │ └── ProductService.java
-│ │ ├── config
-│ │ │ └── WebConfig.java
-│ │ └── SpringWebPracticeApplication.java
-│ └── resources
-│ ├── static
-│ │ └── index.html
-│ └── application.properties
-
-
-
 ## How to Run
 
 1. **Clone the repository**  
    ```bash
    git clone https://github.com/your-username/Product-CRUD-App.git
-Open the project in IntelliJ or any Java IDE
+2. Open the project in IntelliJ or any Java IDE
 
-Run the Spring Boot Application
-Execute SpringWebPracticeApplication.java from your IDE
+3. Run the Spring Boot Application
+   
+4. Execute SpringWebPracticeApplication.java from your IDE
 
-Access H2 Console (optional DB view)
+5. Access H2 Console (optional DB view)
 
 URL: http://localhost:8080/h2-console
 
@@ -71,8 +48,8 @@ Username: sa
 
 Password: (leave blank)
 
-Open Frontend UI
-Open src/main/resources/static/index.html in your browser
+6. Open Frontend UI
+7. Open src/main/resources/static/index.html in your browser
 or visit http://localhost:8080/index.html directly
 
 API Endpoints
@@ -81,17 +58,7 @@ GET	/products	Get all products
 GET	/products/{prodID}	Get product by ID
 POST	/products	Add a new product
 PUT	/products	Update existing product
-DELETE	/products/{prodID}	Delete product by ID
-
-application.properties
-
-spring.application.name=SpringWebPractice
-spring.h2.console.enabled=true
-spring.datasource.url=jdbc:h2:mem:ProdAPIDB
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-spring.jpa.show-sql=true
+DELETE	/products/{prodID}	Delete product by Id
 
 
 Sample JSON for POST/PUT
@@ -103,29 +70,31 @@ Sample JSON for POST/PUT
 }
 
 Notes
-Frontend fetches data via fetch() and updates UI using DOM
 
-No build tools like React or Angular used — simple static HTML and JS
+1. Frontend fetches data via fetch() and updates UI using DOM
 
-CORS enabled for local HTML access using WebConfig.java
+2. No build tools like React or Angular used — simple static HTML and JS
 
-HTML is placed in src/main/resources/static for auto-serving
+3. CORS enabled for local HTML access using WebConfig.java
+
+4. HTML is placed in src/main/resources/static for auto-serving
 
 
 Future Enhancements
-Add validations and exception handling
 
-Add pagination and filtering
+1. Add validations and exception handling
 
-Replace H2 with MySQL/PostgreSQL
+2. Add pagination and filtering
 
-Deploy backend to cloud (e.g., Render/Heroku)
+3. Replace H2 with MySQL/PostgreSQL
 
-Make UI responsive and user-friendly
+4. Deploy backend to cloud (e.g., Render/Heroku)
 
-Use DTOs and model mappers for better architecture
+5. Make UI responsive and user-friendly
 
-Add Swagger for API documentation
+6. Use DTOs and model mappers for better architecture
+
+7. Add Swagger for API documentation
 
 
 Author
