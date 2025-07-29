@@ -1,71 +1,66 @@
-# Spring Boot Product CRUD API
+Product CRUD App (Spring Boot + H2 + Vanilla JS)
+A simple full-stack Product CRUD application using Spring Boot, H2 in-memory database, and vanilla HTML/CSS/JavaScript frontend to demonstrate core backend and API integration concepts.
 
-A simple Spring Boot-based RESTful API that manages a list of products using full CRUD operations (Create, Read, Update, Delete). This is a beginner-friendly project demonstrating clean controller-service-model architecture without database integration (uses in-memory data).
+✅ Features
+Add, view, update, and delete products.
 
-## Features
+RESTful API with endpoints for all CRUD operations.
 
-- Retrieve all products
-- Retrieve a product by ID
-- Add a new product
-- Update an existing product
-- Delete a product
+Frontend built with vanilla HTML/CSS/JS using fetch() API.
 
-## Tech Stack
+Integrated in-memory H2 database (no setup required).
 
-- Java 17+
-- Spring Boot
-- Spring Web
-- Lombok
-- RESTful APIs
-- Postman (for testing)
+CORS enabled for frontend-backend communication.
 
-## Project Structure
+Clean architecture using Controller, Service, Repository layers.
 
-com.pauls.SpringWebPractice
-│
-├── controller # REST controllers (ProductController)
-├── service # Business logic (ProductService)
-└── model # Data model (Product)
+⚙️ Tech Stack
+Backend: Spring Boot (REST APIs)
 
-## Endpoints
+Database: H2 (in-memory, no installation required)
 
-| Method | Endpoint             | Description           |
-|--------|----------------------|-----------------------|
-| GET    | `/products`          | Get all products      |
-| GET    | `/products/{prodID}` | Get product by ID     |
-| POST   | `/products`          | Add a new product     |
-| PUT    | `/products`          | Update product        |
-| DELETE | `/products/{prodID}` | Delete product by ID  |
+Frontend: HTML + CSS + JavaScript (no frameworks)
 
-## Sample JSON (POST/PUT)
+Build Tool: Maven
 
-```json
-{
-  "prodId": 103,
-  "prodName": "Samsung TV",
-  "price": 45000
-}
+📁 Project Structure
+css
+Copy
+Edit
+SpringWebPractice/
+├── controller/         → REST endpoints
+├── model/              → Product entity
+├── repository/         → Spring Data JPA repository
+├── service/            → Business logic layer
+├── config/             → CORS configuration
+├── static/index.html   → Frontend interface (HTML)
+├── application.properties
+└── main class          → Spring Boot starter
+🔗 API Endpoints
+Method	Endpoint	Description
+GET	/products	Get all products
+GET	/products/{id}	Get product by ID
+POST	/products	Add a new product
+PUT	/products/{id}	Update existing product
+DELETE	/products/{id}	Delete product
 
-## How to Run
+🧪 H2 Console
+H2 Console: http://localhost:8080/h2-console
 
-1. Clone the repository:  
-   `git clone https://github.com/your-username/spring-product-crud.git`
+JDBC URL: jdbc:h2:mem:ProdAPIDB
 
-2. Open the project in IntelliJ IDEA or VS Code.
+Username: sa (default)
 
-3. Run `SpringWebPracticeApplication.java`.
+Password: (leave blank unless changed)
 
-4. Test the endpoints using Postman or any API testing tool.
+🌐 Running the App
+Clone the repo or import the project in IntelliJ.
 
-## Future Enhancements
+Place the HTML file in src/main/resources/static/.
 
-1. Integrate with a real database (e.g., MySQL)
+Run the SpringWebPracticeApplication.java class.
 
-2. Add validation and exception handling
+Visit http://localhost:8080/index.html to use the app.
 
-3. Implement Swagger documentation
+Use the buttons to interact with the product database.
 
----
-
-**Author**: Samadrita Paul  
-**License**: MIT
