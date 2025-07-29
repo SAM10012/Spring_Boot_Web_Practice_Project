@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product CRUD App</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        input, button { margin: 5px; padding: 5px; }
+        #productList li { margin: 5px 0; }
+    </style>
+</head>
+<body>
+<h2>Product CRUD Manager</h2>
+
+<!-- Product input fields -->
+<input type="number" id="prodId" placeholder="Product ID">
+<input type="text" id="prodName" placeholder="Product Name">
+<input type="number" id="price" placeholder="Price">
+
+<!-- CRUD buttons -->
+<div>
+    <button onclick="addProduct()">Add Product</button>
+    <button onclick="getProduct()">Get Product by ID</button>
+    <button onclick="updateProduct()">Update Product</button>
+    <button onclick="deleteProduct()">Delete Product</button>
+    <button onclick="getAllProducts()">Get All Products</button>
+</div>
+
+<h3>Product List:</h3>
+<ul id="productList"></ul>
+
+<script>
+    const BASE_URL = "http://localhost:8080/products";
+
+    // 🔁 Get all products
+    function getAllProducts() {
+      fetch(BASE_URL)
+        .then(res => res.json())
+        .then(data => {
+          const list = document.getElementById("productList");
+          list.innerHTML = "";
+          data.forEach(p => {
+            const item = document.createElement("li");
+            item.textContent = `ID: ${p.prodId}, Name: ${p.prodName}, Price: ₹${p.price}`;
+            list.appendChild(item);
+          });
+        });
+    }
+
+    // 🔍 Get product by ID
+    function getProduct() {
+      const id = document.getElementById("prodId").value;
+      fetch(`${BASE_URL}/${id}`)
+        .then(res => {
+          if (!res.ok) throw new Error("Product not found");
+          return res.json();
+        })
+        .then(p => {
+          alert(`ID: ${p.prodId}\nName: ${p.prodName}\nPrice: ₹${p.price}`);
+        })
+        .catch(err => alert(err.message));
+    }
+
+    // ➕ Add product
+    function addProduct() {
+      const prod = getProductFromInputs();
+      fetch(BASE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(prod)
+      }).then(() => {
+        alert("Product added!");
+        getAllProducts();
+      });
+    }
+
+    // ✏️ Update product
+    function updateProduct() {
+      const id = document.getElementById("prodId").value;
+      const prod = getProductFromInputs();
+      fetch(`${BASE_URL}/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(prod)
+      }).then(() => {
+        alert("Product updated!");
+        getAllProducts();
+      });
+    }
+
+    // ❌ Delete product
+    function deleteProduct() {
+      const id = document.getElementById("prodId").value;
+      fetch(`${BASE_URL}/${id}`, {
+        method: "DELETE"
+      }).then(() => {
+        alert("Product deleted!");
+        getAllProducts();
+      });
+    }
+
+    // 📦 Helper: Create product object from inputs
+    function getProductFromInputs() {
+      return {
+        prodId: parseInt(document.getElementById("prodId").value),
+        prodName: document.getElementById("prodName").value,
+        price: parseInt(document.getElementById("price").value)
+      };
+    }
+
+    // Load all products initially
+    window.onload = getAllProducts;
+</script>
+</body>
+</html>
